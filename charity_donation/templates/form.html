@@ -1,0 +1,276 @@
+{% extends 'base.html' %}
+{% block head %}
+        <header class="header--form-page">
+{% endblock %}
+{% block header %}
+      <div class="slogan container container--90">
+        <div class="slogan--item">
+          <h1>
+            Give away things you no longer want for<br />
+            <span class="uppercase">those in need</span>
+          </h1>
+
+          <div class="slogan--steps">
+            <div class="slogan--steps-title">In just 4 simple steps:</div>
+            <ul class="slogan--steps-boxes">
+              <li>
+                <div><em>1</em><span>Select things</span></div>
+              </li>
+              <li>
+                <div><em>2</em><span>Pack them in garbage bags</span></div>
+              </li>
+              <li>
+                <div><em>3</em><span>Pick foundation</span></div>
+              </li>
+              <li>
+                <div><em>4</em><span>Order a courier</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+{% endblock %}
+
+{% block content %}
+    <section class="form--steps">
+      <div class="form--steps-instructions">
+        <div class="form--steps-container">
+          <h3>Important!</h3>
+          <p data-step="1" class="active">
+            Describe the details of your items. Thanks to this, we will know who is best to pass them on to.
+          </p>
+          <p data-step="2">
+            Describe the details of your items. Thanks to this, we will know who is best to pass them on to.
+          </p>
+          <p data-step="3">
+           Choose the one to which your package will go.
+          </p>
+          <p data-step="4">Enter the address and the date of receipt of things.</p>
+        </div>
+      </div>
+
+      <div class="form--steps-container">
+        <div class="form--steps-counter">Step <span>1</span>/5</div>
+
+        <form action="form-confirmation.html" method="post">
+          <!-- STEP 1: class .active is switching steps -->
+          <div data-step="1" class="active">
+            <h3>Select what you want to give away:</h3>
+
+            <div class="form-group form-group--checkbox">
+              <label>
+                <input
+                  type="checkbox"
+                  name="categories"
+                  value="clothes-to-use"
+                />
+                <span class="checkbox"></span>
+                <span class="description"
+                  >clothes that can be used again</span
+                >
+              </label>
+            </div>
+
+            <div class="form-group form-group--checkbox">
+              <label>
+                <input
+                  type="checkbox"
+                  name="categories"
+                  value="clothes-useless"
+                />
+                <span class="checkbox"></span>
+                <span class="description">clothes to be thrown away</span>
+              </label>
+            </div>
+
+            <div class="form-group form-group--checkbox">
+              <label>
+                <input type="checkbox" name="categories" value="toys" />
+                <span class="checkbox"></span>
+                <span class="description">toys</span>
+              </label>
+            </div>
+
+            <div class="form-group form-group--checkbox">
+              <label>
+                <input type="checkbox" name="categories" value="books" />
+                <span class="checkbox"></span>
+                <span class="description">books</span>
+              </label>
+            </div>
+
+            <div class="form-group form-group--checkbox">
+              <label>
+                <input type="checkbox" name="categories" value="other" />
+                <span class="checkbox"></span>
+                <span class="description">other</span>
+              </label>
+            </div>
+
+            <div class="form-group form-group--buttons">
+              <button type="button" class="btn next-step">Next</button>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div data-step="2">
+            <h3>Enter the number of 60l bags you have packed into:</h3>
+
+            <div class="form-group form-group--inline">
+              <label>
+                Number of 60l bags:
+                <input type="number" name="bags" step="1" min="1" />
+              </label>
+            </div>
+
+            <div class="form-group form-group--buttons">
+              <button type="button" class="btn prev-step">Previous</button>
+              <button type="button" class="btn next-step">Next</button>
+            </div>
+          </div>
+
+
+
+          <!-- STEP 4 -->
+          <div data-step="3">
+            <h3>Choose the organization you want to help:</h3>
+
+            <div class="form-group form-group--checkbox">
+              <label>
+                <input type="radio" name="organization" value="old" />
+                <span class="checkbox radio"></span>
+                <span class="description">
+                  <div class="title">Foundation “Without home”</div>
+                  <div class="subtitle">
+                    Purpose and mission: Help for people without a place of residence.
+                  </div>
+                </span>
+              </label>
+            </div>
+
+            <div class="form-group form-group--checkbox">
+              <label>
+                <input type="radio" name="organization" value="old" />
+                <span class="checkbox radio"></span>
+                <span class="description">
+                  <div class="title">Foundation “For kids"</div>
+                  <div class="subtitle">
+                    Purpose and Mission: Help people find themselves in difficult circumstances.
+                  </div>
+                </span>
+              </label>
+            </div>
+
+            <div class="form-group form-group--buttons">
+              <button type="button" class="btn prev-step">Previous</button>
+              <button type="button" class="btn next-step">Next</button>
+            </div>
+          </div>
+
+          <!-- STEP 5 -->
+          <div data-step="4">
+            <h3>Provide the address and date of receipt of the item by courier:</h3>
+
+            <div class="form-section form-section--columns">
+              <div class="form-section--column">
+                <h4>Pickup Address</h4>
+                <div class="form-group form-group--inline">
+                  <label> Street <input type="text" name="address" /> </label>
+                </div>
+
+                <div class="form-group form-group--inline">
+                  <label> City <input type="text" name="city" /> </label>
+                </div>
+
+                <div class="form-group form-group--inline">
+                  <label>
+                    Postcode <input type="text" name="postcode" />
+                  </label>
+                </div>
+
+                <div class="form-group form-group--inline">
+                  <label>
+                    Phone number <input type="phone" name="phone" />
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-section--column">
+                <h4>Date of receipt</h4>
+                <div class="form-group form-group--inline">
+                  <label> Date <input type="date" name="data" /> </label>
+                </div>
+
+                <div class="form-group form-group--inline">
+                  <label> Hour <input type="time" name="time" /> </label>
+                </div>
+
+                <div class="form-group form-group--inline">
+                  <label>
+                    Notes for the courier
+                    <textarea name="more_info" rows="5"></textarea>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-group--buttons">
+              <button type="button" class="btn prev-step">Previous</button>
+              <button type="button" class="btn next-step">Next</button>
+            </div>
+          </div>
+
+          <!-- STEP 6 -->
+          <div data-step="5">
+            <h3>Summary of your donation</h3>
+
+            <div class="summary">
+              <div class="form-section">
+                <h4>You give:</h4>
+                <ul>
+                  <li>
+                    <span class="icon icon-bag"></span>
+                    <span class="summary--text"
+                      >4 bags of clothes in good condition for children</span
+                    >
+                  </li>
+
+                  <li>
+                    <span class="icon icon-hand"></span>
+                    <span class="summary--text"
+                      >For the "I have a dream" foundation in Warsaw</span
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div class="form-section form-section--columns">
+                <div class="form-section--column">
+                  <h4>Pickup Address:</h4>
+                  <ul>
+                    <li>Prosta 51</li>
+                    <li>Warszawa</li>
+                    <li>99-098</li>
+                    <li>123 456 789</li>
+                  </ul>
+                </div>
+
+                <div class="form-section--column">
+                  <h4>Date of receipt:</h4>
+                  <ul>
+                    <li>13/12/2018</li>
+                    <li>15:40</li>
+                    <li>No comments</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group form-group--buttons">
+              <button type="button" class="btn prev-step">Previous</button>
+              <button type="submit" class="btn">Confirm</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    {% endblock %}

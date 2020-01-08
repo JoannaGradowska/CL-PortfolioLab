@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Sign In{% endblock %}
+
+{% block header %}
+    <section class="login-page">
+        <h2>Sign in</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="form-group">
+
+                {{ form.username }}
+                {{ form.username.errors }}
+
+            </div>
+            <div class="form-group">
+
+                {{ form.password }}
+                {{ form.password.errors }}
+            </div>
+            <div class="form-group form-group--buttons">
+                <a href="{% url 'signup' %}" class="btn btn--without-border">Sign up</a>
+                <button class="btn" type="submit">Login</button>
+            </div>
+        </form>
+{% endblock %}
+{% block header_img %}
+    <header></header>
+{% endblock %}

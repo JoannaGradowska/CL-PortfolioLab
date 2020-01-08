@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{#          <li class="highlighted"><a href="#">Załóż konto</a></li>#}
+
+{% block header %}
+
+
+    <section class="login-page">
+        <h2>Create an account</h2>
+        <form method="post">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="First name"/>
+            </div>
+            <div class="form-group">
+                <input type="text" name="surname" placeholder="Last name"/>
+            </div>
+            <div class="form-group">
+                <input type="email" name="username" placeholder="Email"/>
+                {{ form.username.errors }}
+            </div>
+            <div class="form-group">
+                <input type="password" name="password1" placeholder="Password"/>
+                {{ form.password1.errors }}
+            </div>
+            <div class="form-group">
+                <input type="password" name="password2" placeholder="Confirm password"/>
+                {{ form.password2.errors }}
+            </div>
+
+            <div class="form-group form-group--buttons">
+                <a href="{% url 'login' %}" class="btn btn--without-border">Login</a>
+                <button class="btn" type="submit">Sign up</button>
+                {% csrf_token %}
+            </div>
+        </form>
+    </section>
+{% endblock %}
+{% block header_img %}
+    <header></header>
+{% endblock %}
