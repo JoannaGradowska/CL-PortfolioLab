@@ -1,5 +1,4 @@
 from django.contrib.auth.models import User
-from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
 from django.views import View
 
@@ -25,5 +24,4 @@ class SignUp(View):
             return redirect('login')
 
         else:
-
             return render(request, 'registration/register.html', context={'form': form})
