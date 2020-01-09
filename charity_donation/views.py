@@ -10,8 +10,14 @@ class LandingPage(View):
         bags = 0
         for bag in donations:
             bags += bag.quantity
+        i = []
+        for d in donations:
+            if d.institution_id not in i:
+                i.append(d.institution_id)
+        organizations = len(i)
         return render(request, 'index.html', context={
-            "bags": bags
+            "bags": bags,
+            "organizations": organizations,
         })
 
 
