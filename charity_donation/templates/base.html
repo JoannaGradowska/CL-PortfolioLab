@@ -16,7 +16,7 @@
     {% if user.is_superuser %}
         <ul class="nav--actions">
             <li class="logged-user">
-                Hello admin {{ user.username }}
+                Hello admin {{ user.first_name }}
                 <ul class="dropdown">
                     <li><a href="#">Profile</a></li>
                     <li><a href="#">Charities</a></li>
@@ -28,7 +28,7 @@
     {% elif user.is_authenticated %}
         <ul class="nav--actions">
             <li class="logged-user">
-                Hello {{ user.username }}
+                Hello {{ user.first_name }}
                 <ul class="dropdown">
                     <li><a href="#">Profile</a></li>
                     <li><a href="#">Charities</a></li>
