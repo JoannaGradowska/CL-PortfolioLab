@@ -1,6 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.paginator import Paginator
-from django.db.models import Count, Sum
+from django.db.models import Sum
 from django.shortcuts import render
 from django.views.generic.base import View
 
@@ -9,8 +8,6 @@ from charity_donation.models import Donation, Institution, Category
 
 class LandingPage(View):
     def get(self, request):
-        donations = Donation.objects.all()
-        # bags = Donation.objects.values("quantity").annotate(Count("institution_id"))
         donation_set = Donation.objects.aggregate(Sum('quantity'))
 
         supported_organizations = Institution.objects.exclude(donation__isnull=True).count()
@@ -22,7 +19,7 @@ class LandingPage(View):
         charities = institutions.filter(type=3)
 
         return render(request, 'index.html', context={
-            "bags": donation_set,
+            "bags": donation_set.get('quantity__sum'),
             "supported_organizations": supported_organizations,
             "foundations": foundations,
             "organizations": organizations,

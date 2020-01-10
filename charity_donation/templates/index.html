@@ -8,7 +8,7 @@
     <section id="stats" class="stats">
         <div class="container container--85">
             <div class="stats--item">
-                <em>{{ bags.quantity__sum }}</em>
+                <em>{{ bags }}</em>
                 <h3>Donated bags</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
                     tempora!</p>
@@ -75,7 +75,7 @@
                             <div class="subtitle">Purpose and Mission: {{ foundation.description }}</div>
                         </div>
                         <div class="col">
-                            <div class="text">clothing, food, household appliances, furniture, toys</div>
+                            <div class="text">{{ foundation.categories.all|join:", " }}</div>
                         </div>
                     </li>
                 {% endfor %}
@@ -102,7 +102,7 @@
                             <div class="subtitle">Purpose and mission: {{ organization.description }}</div>
                         </div>
                         <div class="col">
-                            <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                            <div class="text">{{ organization.categories.all|join:", " }}</div>
                         </div>
                     </li>
                 {% endfor %}
@@ -130,7 +130,8 @@
                         </div>
                         <div class="col">
                             <div class="text">
-
+                            <div class="text"></div>
+                                {{ local_charity.categories.all|join:", " }}
                             </div>
                         </div>
                     </li>
